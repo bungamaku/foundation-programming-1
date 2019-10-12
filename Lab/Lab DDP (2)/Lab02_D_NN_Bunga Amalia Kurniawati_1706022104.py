@@ -14,9 +14,9 @@ if desimal == 0 :
 else :
     while desimal > 0 :
         if desimal % 2:
-            akhir += 'B'  #Mengubah nilai 0 menjadi P
+            akhir += 'B'  #Mengubah nilai 1 menjadi B
         else :
-            akhir += 'P'  #Mengubah nilai 1 menjadi B
+            akhir += 'P'  #Mengubah nilai 0 menjadi P
         desimal = desimal // 2  #Mengubah patokan untuk menjalankan while
     print('Makna duniawi:', akhir[::-1])  #Menulis output makna duniawi
     
