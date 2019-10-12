@@ -46,46 +46,47 @@ class DriverBenJek:
 #Membuat fungsi untuk mengeprint pendapatan total akhir perdriver
     def pendapatan_driver(self, nama):
         print(('{} : Rp.{}').format(nama, str(self.pendapatan_total * 4//5)))
+        
+if __name__ == '__main__':
+    #Membuat variabel kosong sebelum menjalankan program
+    dict_nama = {}
+    list_pendapatan = []
+    total_benjek = 0
 
-#Membuat variabel kosong sebelum menjalankan program
-dict_nama = {}
-list_pendapatan = []
-total_benjek = 0
-
-#Program terus berjalan sampai input berupa 'AKHIR BULAN'
-while True:
-    masukan = input().split()
-#Program yang dijalankan untuk perintah 'DAFTAR'
-    if masukan[0] == 'DAFTAR':
-        if masukan[1] not in dict_nama:
-#Memasukkan driver ke dictionary apabila driver belum terdaftar
-            dict_nama[masukan[1]] = DriverBenJek(masukan[1], masukan[2])
-            print(masukan[1], 'berhasil mendaftar sebagai driver BenJek layanan', masukan[2])
-        else:
-            print(masukan[1], 'gagal mendaftar sebagai driver BenJek')
-#Program yang dijalankan untuk perintah 'MULAI PERJALANAN'
-    elif masukan[0] == 'MULAI':
-        if masukan[2] in dict_nama:
-            dict_nama[masukan[2]].perjalanan(masukan[3])
-        else:
-            print(masukan[2], 'tidak ada di dalam sistem')
-#Program yang dijalankan untuk perintah 'CEK PENDAPATAN'
-    elif masukan[0] == 'CEK':
-        if masukan[2] in dict_nama:
-            dict_nama[masukan[2]].cek_pendapatan(masukan[2])
-        else:
-            print(masukan[2], 'tidak ada di dalam sistem')
-#Program yang dijalankan untuk perintah 'AKHIR BULAN'
-    elif masukan[0] == 'AKHIR':
-#Menghitung pendapatan total untuk BenJek
-        for nama in dict_nama:
-            total_benjek += dict_nama[nama].pendapatan
-        print('Sudah akhir bulan! Pendapatan BenJek bulan ini adalah Rp.', str(total_benjek//5))
-        print('Daftar pendapatan pengemudi:')
-#Mengeprint pendapatan akhir setiap driver di akhir bulan
-        for nama in dict_nama:
-            dict_nama[nama].pendapatan_driver(nama)
-        break
+    #Program terus berjalan sampai input berupa 'AKHIR BULAN'
+    while True:
+        masukan = input().split()
+    #Program yang dijalankan untuk perintah 'DAFTAR'
+        if masukan[0] == 'DAFTAR':
+            if masukan[1] not in dict_nama:
+    #Memasukkan driver ke dictionary apabila driver belum terdaftar
+                dict_nama[masukan[1]] = DriverBenJek(masukan[1], masukan[2])
+                print(masukan[1], 'berhasil mendaftar sebagai driver BenJek layanan', masukan[2])
+            else:
+                print(masukan[1], 'gagal mendaftar sebagai driver BenJek')
+    #Program yang dijalankan untuk perintah 'MULAI PERJALANAN'
+        elif masukan[0] == 'MULAI':
+            if masukan[2] in dict_nama:
+                dict_nama[masukan[2]].perjalanan(masukan[3])
+            else:
+                print(masukan[2], 'tidak ada di dalam sistem')
+    #Program yang dijalankan untuk perintah 'CEK PENDAPATAN'
+        elif masukan[0] == 'CEK':
+            if masukan[2] in dict_nama:
+                dict_nama[masukan[2]].cek_pendapatan(masukan[2])
+            else:
+                print(masukan[2], 'tidak ada di dalam sistem')
+    #Program yang dijalankan untuk perintah 'AKHIR BULAN'
+        elif masukan[0] == 'AKHIR':
+    #Menghitung pendapatan total untuk BenJek
+            for nama in dict_nama:
+                total_benjek += dict_nama[nama].pendapatan
+            print('Sudah akhir bulan! Pendapatan BenJek bulan ini adalah Rp.', str(total_benjek//5))
+            print('Daftar pendapatan pengemudi:')
+    #Mengeprint pendapatan akhir setiap driver di akhir bulan
+            for nama in dict_nama:
+                dict_nama[nama].pendapatan_driver(nama)
+            break
         
 
 

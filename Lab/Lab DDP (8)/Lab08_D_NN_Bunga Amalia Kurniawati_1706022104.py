@@ -69,35 +69,36 @@ class Manager:
     def is_staff_recruited(self, nama):
         return nama in self.staffs
 
-manager = Manager()
+if __name__ == '__main__':
+    manager = Manager()
 
-while True:
-    masukan = input().lower().split(';')
+    while True:
+        masukan = input().lower().split(';')
 
-    if masukan[0] == 'exit':
-        break
+        if masukan[0] == 'exit':
+            break
 
-    perintah = masukan[0]
+        perintah = masukan[0]
 
-    if perintah == 'rekrut' and len(masukan) == 3:
-        if manager.is_staff_recruited(masukan[1]):
-            print('{} sudah direkrut sebelumnya'.format(staf.nama.capitalize()))
-        else:
-            if(masukan[2] == 'acara'):
-                staf = StaffAcara(masukan[1])
-            elif(masukan[2] == 'partnership'):
-                staf = StaffPartnership(masukan[1])
-            elif(masukan[2] == 'publikasi'):
-                staf = StaffPublikasi(masukan[1])
-            manager.recruit_staff(staf)
-            print('{} direkrut'.format(staf.nama.capitalize()))
+        if perintah == 'rekrut' and len(masukan) == 3:
+            if manager.is_staff_recruited(masukan[1]):
+                print('{} sudah direkrut sebelumnya'.format(staf.nama.capitalize()))
+            else:
+                if(masukan[2] == 'acara'):
+                    staf = StaffAcara(masukan[1])
+                elif(masukan[2] == 'partnership'):
+                    staf = StaffPartnership(masukan[1])
+                elif(masukan[2] == 'publikasi'):
+                    staf = StaffPublikasi(masukan[1])
+                manager.recruit_staff(staf)
+                print('{} direkrut'.format(staf.nama.capitalize()))
 
-    if perintah == 'kerja' and len(masukan) == 3:
-        print(manager.get_staff(masukan[1]).kerja(int(masukan[2])))
+        if perintah == 'kerja' and len(masukan) == 3:
+            print(manager.get_staff(masukan[1]).kerja(int(masukan[2])))
 
-    if perintah == 'log' and len(masukan) == 2:
-        print('>> ', manager.get_staff(masukan[1]).nama,\
-            '\nTelah bekerja selama:', manager.get_staff(masukan[1]).jam_kerja,\
-            'jam\nProgress:', manager.get_staff(masukan[1]).progress,\
-            'persen\nGaji sementara:', manager.get_staff(masukan[1]).hitung_gaji(),\
-            'bencoin')
+        if perintah == 'log' and len(masukan) == 2:
+            print('>> ', manager.get_staff(masukan[1]).nama,\
+                '\nTelah bekerja selama:', manager.get_staff(masukan[1]).jam_kerja,\
+                'jam\nProgress:', manager.get_staff(masukan[1]).progress,\
+                'persen\nGaji sementara:', manager.get_staff(masukan[1]).hitung_gaji(),\
+                'bencoin')
