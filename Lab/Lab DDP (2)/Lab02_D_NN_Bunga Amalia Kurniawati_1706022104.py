@@ -13,10 +13,10 @@ if desimal == 0 :
     print('Makna duniawi: P')  #Pengecualian jika input user '0'
 else :
     while desimal > 0 :
-        if desimal % 2 == 0 :
-            akhir += 'P'  #Mengubah nilai 0 menjadi P
+        if desimal % 2:
+            akhir += 'B'  #Mengubah nilai 0 menjadi P
         else :
-            akhir += 'B'  #Mengubah nilai 1 menjadi B
+            akhir += 'P'  #Mengubah nilai 1 menjadi B
         desimal = desimal // 2  #Mengubah patokan untuk menjalankan while
     print('Makna duniawi:', akhir[::-1])  #Menulis output makna duniawi
     
